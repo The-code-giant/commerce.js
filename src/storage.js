@@ -34,10 +34,9 @@ class Storage {
   }
 
   get(key) {
-    if (!document) {
+    if (this.commerce.options.disableStorage) {
       return null;
     }
-
     key = key + '=';
 
     for (let c of Array.from(document.cookie.split(';'))) {
